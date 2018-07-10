@@ -1,0 +1,59 @@
+html, body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image: url(../images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+
+.header-panel {
+    background-color: #093;
+    border-bottom: 2px solid #ffffff;
+    margin-bottom: 6%;
+}
+.title {
+    color: #ffffff;
+}
+.time {
+    font-weight: bolder;
+    font-size: 19px;
+    color: #ffffff;
+}
+
+.form-container {
+    background-color: #093;
+    width: 40%;
+    padding: 2%;
+    left: 5;
+}
+
+label {
+    color: #ffffff;
+}
+
+.btn-login {
+    color: #093;
+    background-color: #ffffff;
+    font-weight: bolder !important;
+}
+.btn-login:hover {
+    color: #093 !important;
+    font-weight: bolder;
+    background-color: #fff
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.copyrights {
+    background-color: #fff;
+    width: 40%;
+    padding: 1%;
+    font-size: 14px;
+    color: #093;
+    text-align: center;
+}
