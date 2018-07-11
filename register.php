@@ -1,10 +1,11 @@
 <?php
 
-    require 'config/config.php';
-    $con = new db();
-    $dbcon = $con->Connect();
+    require 'config/config.php'; // Requiring the config file
+    $con = new db();  // Creating the Instance of the Class db
+    $dbcon = $con->Connect(); // connecting to the database
 
 
+    // Checking if button is clicked.
     if(isset($_POST['btn_reg'])){
 
         // Declaring Variables to store inputed data.
@@ -84,12 +85,19 @@
             <div class="col-md-4">
                 <h3 class="title">Ekobits<b>Class</b></h3>
             </div>
-            <div class="col-md-4">
-                <h3 class="title"> Regular User</h3>
+            <div class="col-md-3">
+               
             </div>
 
-            <div class="col-md-2">
-                <h3 class="time"><?= date('h:i:sa') ?></h3>
+            <div class="col-md-4">
+                    <nav class="">
+                        <ul class="navbar-nav nav">
+                            <li><a href="index.php" class="title"> Blog</a></li>
+                            <li><a href="register.php" class="title"> Register</a></li>
+                            <li><a href="login.php" class="title"> Log in</a></li>
+                            <li><a href="profile.php" class="title"> Profile </a></li>
+                        </ul>
+                    </nav>
             </div>
 
         </div>

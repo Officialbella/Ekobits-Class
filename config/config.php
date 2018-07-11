@@ -2,10 +2,10 @@
 
 class db
  {
- 	private $host = "localhost";
- 	private $user = "root"; // your user = root
+ 	private $host = "localhost"; // Host Server
+ 	private $user = "root"; // Defualt User = root
  	private $pswd = ""; // ""
- 	private $dbName = "ekobits_class";
+ 	private $dbName = "ekobits_class"; // Database Name
 
  	function __construct()
  	{

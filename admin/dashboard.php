@@ -5,12 +5,16 @@
     $db = $db->connect(); 
 
     $sql = "SELECT * FROM users;";
+    $sql2 = "SELECT * FROM blog_post;";
 
     $stmt = $db->prepare($sql);
+    $stmt2 = $db->prepare($sql2);
 
     $stmt->execute();
+    $stmt2->execute();
 
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $result2 = $stmt2->fetchAll(PDO::FETCH_OBJ);
     
     if(isset($_POST['btn_submit'])) 
     {
@@ -18,10 +22,10 @@
         $post_dir = "../uploads/";
 
         // Combining the post dir to the file name
-		$post_up = $post_dir.$_FILES['postImg']['name'];
+		$post_up = $post_dir. $_FILES['post_img']['name'];
 
         // Uploading file to the upload dir folder;
-        move_uploaded_file($_FILES['postImg']['tmp_name'], $post_up);
+        move_uploaded_file($_FILES['post_img']['tmp_name'], $post_up);
         
         // Declaring Variables to store  data from the Content creator;
         $postTitle = $_POST['post_title']; // getting the post title;
@@ -48,13 +52,15 @@
         $posted = $stmt->execute();
 
         //checking if fields not empty;
-        if(!$posted) {
+        if($postTitle == null) {
             echo "<script>alert('Problems creating the post, check your fields');</script>";
         }
         else {
             echo "<script>window.location.href = 'dashboard.php';</script>";
         }
     }
+
+    if(isset($_POST['btn_del']))
 ?>
 
 
@@ -64,7 +70,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Log in</title>
+    <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
@@ -101,8 +107,7 @@
             <!-- Content Creator -->
             <div class="col-md-3">
                 <div class="form-container-2">               
-                    <form>
-
+                    <form method="POST" action="">
                         <div class="form-group">
                             <label>Post Title</label><br>
                             <input type="text" placeholder="enter your email or username" name="post_title" class="form-control"></input>
@@ -124,7 +129,7 @@
             </div>
             
             <!-- User Listing -->
-            <div class="col-md-4 form-container">
+            <div class="col-md-5 form-container">
                 
                 <table class="table">
 
@@ -136,22 +141,23 @@
                         <th>Type</th>
                         <th>Joined</th>
                     <tr>
-
+                    <?php $i=1; foreach ($result as $row) { ?> 
                     <tr class="tr">
-                        <td>1</td>
-                        <td>Opeyemi Adesina</td>
-                        <td>Yemistorms</td>
-                        <td>yemi@mail.com</td>
-                        <td>Admin</td>
-                        <td>20:11:2018</td>
+                        <td><?= $i++; ?></td>
+                        <td><?= $row->full_name; ?></td>
+                        <td><?= $row->user_name; ?></td>
+                        <td><?= $row->user_email; ?></td>
+                        <td><?= $row->user_type; ?></td>
+                        <td><?= $row->date_joined; ?></td>
                     </tr>
+                    <?php }?>
 
                 </table>
 
             </div>
 
             <!-- Content Editor -->
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="form-container-2">
 
                     <table class="table">
@@ -164,16 +170,17 @@
                             <th></th>
                             <th></th>
                         <tr>
-
+                        
+                        <?php $i=1; foreach ($result2 as $row) { ?> 
                         <tr class="tr">
-                            <td>1</td>
-                            <td>Opeyemi Adesina</td>
-                            <td>Yemistorms</td>
-                            <td>yemi@mail.com</td>
-                            <td><button class="btn btn-login">Edit</button></td>
-                            <td><button class="btn btn-danger">delete</button></td>
+                            <td><?= $i++;?></td>
+                            <td><?= $row->post_title; ?></td>
+                            <td><?= $row->post_content; ?></td>
+                            <td><?= $row->post_author ?></td>
+                            <td><button class="btn btn-login" name="">Edit</button></td>
+                            <td><button class="btn btn-danger" name="btn_del">delete</button></td>
                         </tr>
-
+                        <?php }?>
                     </table>
                 </div>
             </div>

@@ -32,7 +32,7 @@
             else {
 
                 foreach ($result as $row) {
-					$_SESSION['admin'] = $row->username;
+					$_SESSION['admin'] = $row->user_name;
 				}
 				
 				echo "<script>window.location.href = 'dashboard.php';</script>";

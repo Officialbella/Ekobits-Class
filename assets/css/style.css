@@ -1,11 +1,7 @@
 html, body {
     font-family: 'Source Sans Pro', sans-serif;
-    background-image: url(../images/bg.jpg);
-    background-attachment: fixed;
-    background-size: cover;
     color: #ffffff;
 }
-
 
 .header-panel {
     background-color: #093;
@@ -57,4 +53,13 @@ label {
     font-size: 14px;
     color: #093;
     text-align: center;
+}
+
+.blog_post {
+    background-color: #093 !important;
+    padding: 2%;
+    color: #fff;
+}
+.bold {
+    font-weight: bolder;
 }
