@@ -12,9 +12,6 @@ html, body {
     border-bottom: 2px solid #ffffff;
     margin-bottom: 6%;
 }
-.style-header {
-    color: #ffffff !important;
-}
 .title {
     color: #ffffff;
 }
@@ -23,18 +20,12 @@ html, body {
     font-size: 19px;
     color: #ffffff;
 }
-.margin {
-    margin-left: 1%;
-}
+
 .form-container {
     background-color: #093;
     width: 40%;
     padding: 2%;
     left: 5;
-}
-.form-container-2 {
-    background-color: #093;
-    padding: 5%;
 }
 
 label {
@@ -66,12 +57,4 @@ label {
     font-size: 14px;
     color: #093;
     text-align: center;
-}
-
-.tr th {
-    color: #fff !important;
-}
-
-.tr td {
-    color: #fff !important;
 }
